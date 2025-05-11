@@ -9,7 +9,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<DbService>();
-builder.Services.AddScoped<EmployeeRepository>();
+builder.Services.AddSingleton<EmployeeRepository>();
 
 var app = builder.Build();
 

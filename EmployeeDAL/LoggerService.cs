@@ -6,17 +6,22 @@ using System.Threading.Tasks;
 
 namespace EmployeeDAL
 {
-    public static class LoggerService
+    public interface ILoggerService
     {
-        private static readonly string logFile = "log.txt";
+        void Log(string message);
+    }
 
-        static LoggerService()
+    public class FileLoggerService : ILoggerService
+    {
+        private readonly string logFile = "log.txt";
+
+        public FileLoggerService()
         {
             if (!File.Exists(logFile))
                 File.Create(logFile).Close();
         }
 
-        public static void Log(string message)
+        public void Log(string message)
         {
             File.AppendAllText(logFile, $"{DateTime.Now}: {message}{Environment.NewLine}");
         }

@@ -9,3 +9,6 @@
 11-05-2025 23:30:37: Created employee panthee
 11-05-2025 23:30:51: Fetched all employees
 11-05-2025 23:30:53: Fetched all employees
+11-05-2025 23:39:57: Fetched all employees
+11-05-2025 23:40:11: Soft deleted employee ID 1002
+11-05-2025 23:40:15: Fetched all employees
