@@ -10,7 +10,7 @@ namespace EmployeeDAL.Services
 {
     public class EmployeeRepository
     {
-        public void Create(Employee emp)
+        public void Create(EmployeeAddDTO emp)
         {
             using (var conn = DbService.Instance.GetConnection())
             {

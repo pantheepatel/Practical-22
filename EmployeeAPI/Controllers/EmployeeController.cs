@@ -35,7 +35,7 @@ namespace EmployeeAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Employee emp)
+        public IActionResult Create(EmployeeAddDTO emp)
         {
             _repo.Create(emp);
             LoggerService.Log($"Created employee {emp.EmployeeName}");
