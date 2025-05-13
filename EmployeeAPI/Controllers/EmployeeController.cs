@@ -8,7 +8,7 @@ namespace EmployeeAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployeeController(EmployeeRepository _repo, FileLoggerService _logger) : ControllerBase
+    public class EmployeeController(EmployeeRepository _repo, ILoggerService _logger) : ControllerBase
     {
 
         [HttpGet("{id}")]

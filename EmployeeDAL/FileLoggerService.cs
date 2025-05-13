@@ -1,4 +1,5 @@
-﻿using System;
+using EmployeeDAL.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,6 @@ using System.Threading.Tasks;
 
 namespace EmployeeDAL
 {
-    public interface ILoggerService
-    {
-        void Log(string message);
-    }
-
     public class FileLoggerService : ILoggerService
     {
         private readonly string logFile = "log.txt";

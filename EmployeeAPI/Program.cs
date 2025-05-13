@@ -1,3 +1,4 @@
+using EmployeeDAL;
 using EmployeeDAL.Services;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ builder.Services.AddSwaggerGen();
 
 // using scoped lifetime for the repository because it may contain per-request data and it is good practice to dispose of it after the request is completed
 builder.Services.AddScoped<EmployeeRepository>();
+builder.Services.AddScoped<ILoggerService, FileLoggerService>();
 
 var app = builder.Build();
 
