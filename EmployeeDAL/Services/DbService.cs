@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace EmployeeDAL.Services
         private static readonly Lazy<DbService> _instance = new Lazy<DbService>(() => new DbService());
         private readonly string _connectionString;
 
-        public DbService()
+        private DbService()
         {
             _connectionString = "Server=.\\SQLEXPRESS;Database=DesignPatterns;Trusted_Connection=True;";
         }

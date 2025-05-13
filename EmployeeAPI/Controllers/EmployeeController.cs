@@ -1,4 +1,4 @@
-﻿using EmployeeDAL.Models;
+using EmployeeDAL.Models;
 using EmployeeDAL.Services;
 using EmployeeDAL;
 using Microsoft.AspNetCore.Http;
@@ -10,18 +10,11 @@ namespace EmployeeAPI.Controllers
     [ApiController]
     public class EmployeeController(EmployeeRepository _repo, FileLoggerService _logger) : ControllerBase
     {
-        //private readonly EmployeeRepository _repo;
-
-        //// Inject the repository via constructor
-        //public EmployeeController(EmployeeRepository repo)
-        //{
-        //    _repo = repo;
-        //}
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var emp = _repo.GetById(id);
+            Employee emp = _repo.GetById(id);
             _logger.Log($"Fetched employee with ID {id}");
             return emp == null ? NotFound() : Ok(emp);
         }
@@ -29,7 +22,7 @@ namespace EmployeeAPI.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var employees = _repo.GetAll();
+            List<Employee> employees = _repo.GetAll();
             _logger.Log("Fetched all employees");
             return Ok(employees);
         }

@@ -1,4 +1,4 @@
-﻿using EmployeeDAL.Models;
+using EmployeeDAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -12,7 +12,7 @@ namespace EmployeeDAL.Services
     {
         public void Create(EmployeeAddDTO emp)
         {
-            using (var conn = DbService.Instance.GetConnection())
+            using (SqlConnection conn = DbService.Instance.GetConnection())
             {
                 string query = @"INSERT INTO Employee 
                                 (EmployeeName, EmployeeSalary, DepartmentId, EmployeeEmail, EmployeeJoiningDate, EmployeeStatus)
@@ -31,7 +31,7 @@ namespace EmployeeDAL.Services
 
         public void Update(Employee emp)
         {
-            using (var conn = DbService.Instance.GetConnection())
+            using (SqlConnection conn = DbService.Instance.GetConnection())
             {
                 string query = @"UPDATE Employee SET 
                                 EmployeeName = @Name,
@@ -54,7 +54,7 @@ namespace EmployeeDAL.Services
 
         public void SoftDelete(int id)
         {
-            using (var conn = DbService.Instance.GetConnection())
+            using (SqlConnection conn = DbService.Instance.GetConnection())
             {
                 string query = "UPDATE Employee SET EmployeeStatus = 'Inactive' WHERE EmployeeId = @Id";
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -68,7 +68,7 @@ namespace EmployeeDAL.Services
         public Employee GetById(int id)
         {
             Employee emp = null;
-            using (var conn = DbService.Instance.GetConnection())
+            using (SqlConnection conn = DbService.Instance.GetConnection())
             {
                 string query = "SELECT * FROM Employee WHERE EmployeeId = @Id";
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -96,7 +96,7 @@ namespace EmployeeDAL.Services
         public List<Employee> GetAll()
         {
             List<Employee> list = new List<Employee>();
-            using (var conn = DbService.Instance.GetConnection())
+            using (SqlConnection conn = DbService.Instance.GetConnection())
             {
                 string query = "SELECT * FROM Employee";
                 SqlCommand cmd = new SqlCommand(query, conn);
